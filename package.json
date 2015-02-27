@@ -1,0 +1,33 @@
+{
+  "name": "ijs.runtime",
+  "version": "0.1.0",
+  "description": "Interactive JavaScript runtime",
+  "keywords": [
+    "interactive",
+    "javascript",
+    "node",
+    "ipython",
+    "kernel",
+    "notebook",
+    "repl"
+  ],
+  "author": {
+    "author": "Nikhil Kothari",
+    "url": "http://www.nikhilk.net"
+  },
+  "license": "Apache 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interactivecomputing/ijs.runtime"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "q": "^1.1.2",
+    "request": "^2.53.0"
+  },
+  "files": [ "src" ],
+  "main": "src/index.js"
+}
