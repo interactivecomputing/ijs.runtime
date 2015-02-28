@@ -17,7 +17,10 @@
 var q = require('q'),
     request = require('request');
 
-var data = require('./data');
+var data = {
+  html: require('./data/html').create,
+  script: require('./data/script').create
+};
 
 // Turn on improved stack reporting
 q.longStackSupport = false;
