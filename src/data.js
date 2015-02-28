@@ -10,33 +10,21 @@
 // either express or implied. See the License for the specific language governing permissions
 // and limitations under the License.
 //
-// index.js
-// Defines the IJavaScript runtime API
+// data.js
 //
 
-var q = require('q'),
-    request = require('request');
+function HTML(markup) {
+  this._markup = markup;
+}
+HTML.create = function(markup) {
+  return new HTML(markup);
+}
 
-var data = require('./data');
-
-// Turn on improved stack reporting
-q.longStackSupport = false;
-
-// Enables running some asynchronous code.
-// It provides a deferred object to the specified function that can be resolved
-// or rejected upon async completion, and returns a promise representing that
-// async result.
-function runAsync(fn) {
-  var deferred = q.defer();
-
-  fn(deferred);
-  return deferred.promise;
+HTML.prototype.toHTML = function() {
+  return this._markup;
 }
 
 
 module.exports = {
-  async: runAsync,
-  data: data,
-  q: q,
-  request: request
+  html: HTML.create
 };
