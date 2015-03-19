@@ -1,10 +1,12 @@
 {
   "name": "ijs.runtime",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Interactive JavaScript runtime",
   "keywords": [
     "interactive",
     "javascript",
+    "ijs",
+    "ijavascript",
     "node",
     "ipython",
     "kernel",

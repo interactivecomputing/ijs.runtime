@@ -10,37 +10,36 @@
 // either express or implied. See the License for the specific language governing permissions
 // and limitations under the License.
 //
-// index.js
-// Defines the IJavaScript runtime API
+// image.js
+// Object that allows constructing image data along with some optional alternate text.
 //
 
-var q = require('q'),
-    request = require('request');
+function Image(buffer) {
+  this._buffer = buffer;
+  this._text = null;
+}
 
-var data = {
-  html: require('./data/html').create,
-  image: require('./data/image').create,
-  script: require('./data/script').create
-};
+Image.prototype.mime = function(mime) {
+  this._buffer.mime = mime;
+  return this;
+}
 
-// Turn on improved stack reporting
-q.longStackSupport = false;
+Image.prototype.text = function(text) {
+  this._text = text;
+  return this;
+}
 
-// Enables running some asynchronous code.
-// It provides a deferred object to the specified function that can be resolved
-// or rejected upon async completion, and returns a promise representing that
-// async result.
-function runAsync(fn) {
-  var deferred = q.defer();
+Image.prototype.toImage = function() {
+  return this._buffer;
+}
 
-  fn(deferred);
-  return deferred.promise;
+Image.prototype.toText = function() {
+  return this._text;
 }
 
 
 module.exports = {
-  async: runAsync,
-  data: data,
-  q: q,
-  request: request
+  create: function(buffer) {
+    return new Image(buffer);
+  }
 };
